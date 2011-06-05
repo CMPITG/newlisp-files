@@ -352,13 +352,15 @@ This function is not available on Win32."
       "|" "~")
     "newLISP primitive keyword list.")
   (defvar newlisp-lambda-keywords
-    '("define" "lambda" "fn" "fn-macro" "define-macro" "lambda-macro"))
+    '("define" "lambda" "fn" "fn-macro" "define-macro" "lambda-macro"
+      "define-test"                     ; cmpitg's unittest
+      ))
   (defvar newlisp-variable-keyword
     '("nil" "true" "ostype"
       "$args" "$idx" "$it" "$main-args" "$prompt-event"
       "$0" "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
       "$10" "$11" "$12" "$13" "$14" "$15"))
-  (defvar newlisp-context-keyowrds
+  (defvar newlisp-context-keywords
     '("Class" "MAIN" "Tree"))
   (defvar newlisp-tag-keywords
     '("[text]" "[/text]" "[cmd]" "[/cmd]"))
@@ -520,6 +522,10 @@ This function is not available on Win32."
 (defindent doargs 1)
 (defindent dotree 1)
 
+;;; cmpitg's
+(defindent define-test 1)
+(defindent apply-actions 1)
+
 ;; $ html2txt $NEWLISPDIR/newlisp_manual.html -o newlisp_manual.txt
 ;; or use www-browser [File] -> [Save Page As (Text)]
 (defvar newlisp-manual-text "newlisp_manual.txt")
@@ -599,7 +605,7 @@ This function is not available on Win32."
          font-lock-function-name-face)
    (cons (eval-when-compile (regexp-opt newlisp-variable-keyword 'words))
          font-lock-constant-face)
-   (cons (eval-when-compile (regexp-opt newlisp-context-keyowrds 'words))
+   (cons (eval-when-compile (regexp-opt newlisp-context-keywords 'words))
          font-lock-type-face)
    (cons (eval-when-compile (regexp-opt newlisp-tag-keywords)) ; not 'words
          font-lock-string-face)
