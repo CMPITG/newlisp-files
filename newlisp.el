@@ -525,6 +525,7 @@ This function is not available on Win32."
 ;;; cmpitg's
 (defindent define-test 1)
 (defindent apply-actions 1)
+(defindent Gtk:apply-actions 1)
 
 ;; $ html2txt $NEWLISPDIR/newlisp_manual.html -o newlisp_manual.txt
 ;; or use www-browser [File] -> [Save Page As (Text)]
